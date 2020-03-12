@@ -1,0 +1,5 @@
+venv
+.vscode
+__pycache__/my_devices.cpython-38.pyc
+secret_devices.py
+__pycache__/secret_devices.cpython-38.pyc

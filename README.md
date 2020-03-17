@@ -1,4 +1,4 @@
-# show_version
+# run command
 Script to run commands on multiple switches by leveraging multiprocessing.
 
 ### Install

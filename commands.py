@@ -11,12 +11,11 @@ def issue_command(a_device, config_commands):
     print(f'\nConnected to {ip_address}..')
     
     net_connect = ConnectHandler(**a_device)
-    
     net_connect.send_config_set(config_commands)
 
-    show_run = net_connect.send_command('sh run | inc http')
+    check_running = net_connect.send_command('show running config')
 
-    if 'no' in show_run:
+    if config_commands in check_running:
         print(f'Config updated for {ip_address}!')
     else:
         print(f'Config **NOT** updated {ip_address}!!')

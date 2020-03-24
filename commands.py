@@ -16,6 +16,7 @@ def issue_command(a_device, config_commands):
 
 def main():
     
+    ip_address = input('Current IP of the switch: ')
     new_hostname = input('New hostname: ')
     new_ipaddr = input('New IP: ')
     int_vlan = input('VLAN: ')
@@ -30,14 +31,14 @@ def main():
     # for device in device_list:
     #     issue_command(device, commands)
 
-    curr_device = {
+    device_connect = {
         "device_type": "cisco_ios",
         "ip": ip_address,
         "username": username,
         "password": password,
     }
 
-    issue_command(device_list, commands)
+    issue_command(device_connect, commands)
 
 if __name__ == "__main__":
     main()

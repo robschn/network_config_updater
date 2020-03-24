@@ -1,5 +1,5 @@
 from netmiko import ConnectHandler
-from my_devices import device_list
+# from my_devices import device_list
 
 
 def issue_command(a_device, config_commands):
@@ -29,6 +29,13 @@ def main():
 
     # for device in device_list:
     #     issue_command(device, commands)
+
+    curr_device = {
+        "device_type": "cisco_ios",
+        "ip": ip_address,
+        "username": username,
+        "password": password,
+    }
 
     issue_command(device_list, commands)
 

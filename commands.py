@@ -4,7 +4,7 @@ from my_devices import device_list
 
 def issue_command(a_device, config_commands):
     
-    ip_address = a_device['ip']
+    # ip_address = a_device['ip']
 
     print(f'\nConnected to {ip_address}..')
     

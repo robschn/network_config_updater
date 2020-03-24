@@ -27,8 +27,10 @@ def main():
          
     ]
 
-    for device in device_list:
-        issue_command(device, commands)
+    # for device in device_list:
+    #     issue_command(device, commands)
+
+    issue_command(device_list, commands)
 
 if __name__ == "__main__":
     main()

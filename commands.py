@@ -1,5 +1,3 @@
-
-import multiprocessing
 from netmiko import ConnectHandler
 from my_devices import device_list
 
@@ -10,22 +8,23 @@ def issue_command(a_device, config_commands):
 
     print(f'\nConnected to {ip_address}..')
     
-    net_connect = ConnectHandler(**a_device)
+    net_connect = ConnectHandler(**a_device
+
+    print(f'Sending commands...:\n{config_command}')
     net_connect.send_config_set(config_commands)
-
-    check_running = net_connect.send_command('show run)
-
-    if config_commands in check_running:
-        print(f'Config updated for {ip_address}!')
-    else:
-        print(f'Config **NOT** updated {ip_address}!!')
     
 
 def main():
     
+    new_hostname = input('New hostname: ')
+    new_ipaddr = input('New IP: ')
+    int_vlan = input('VLAN: ')
+
     commands = [
-        'no ip http server',
-        'no ip http secure-server'
+        f'hostname {new_hostname}_{new_ipaddr}'
+        f'int vlan {int_vlan}',
+        f'ip address {new_ipaddr} 255.255.255.0'
+         
     ]
 
     for device in device_list:

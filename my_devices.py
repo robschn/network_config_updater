@@ -8,8 +8,8 @@ import yaml
 
 device_ips = input('Current IP of the switch: ')
 
-for i in switches.keys():
-    device_ips.append(switches[i])
+# for i in switches.keys():
+#     device_ips.append(switches[i])
 
 username = input('Enter standard username: ')
 password = getpass('Enter standard password: ')

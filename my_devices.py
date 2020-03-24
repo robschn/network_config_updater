@@ -1,12 +1,12 @@
 import yaml
-from getpass import getpass
+# from getpass import getpass
 
-with open('devices.yaml', 'r') as f:
-    doc = yaml.safe_load(f)
+# with open('devices.yaml', 'r') as f:
+#     doc = yaml.safe_load(f)
 
-switches = doc['switch']
+# switches = doc['switch']
 
-device_ips = []
+device_ips = input('Current IP of the switch: ')
 
 for i in switches.keys():
     device_ips.append(switches[i])

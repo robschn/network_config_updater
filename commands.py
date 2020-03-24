@@ -6,7 +6,7 @@ def issue_command(a_device, config_commands):
     
     # ip_address = a_device['ip']
 
-    print(f'\nConnected to {ip_address}..')
+    # print(f'\nConnected to {ip_address}..')
     
     net_connect = ConnectHandler(**a_device)
 

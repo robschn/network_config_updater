@@ -8,9 +8,9 @@ def issue_command(a_device, config_commands):
 
     print(f'\nConnected to {ip_address}..')
     
-    net_connect = ConnectHandler(**a_device
+    net_connect = ConnectHandler(**a_device)
 
-    print(f'Sending commands...:\n{config_command}')
+    print(f'Sending commands...\n{config_command}')
     net_connect.send_config_set(config_commands)
     
 

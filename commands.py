@@ -1,44 +1,32 @@
 from netmiko import ConnectHandler
-# from my_devices import device_list
+from my_devices import device_list
 
 
 def issue_command(a_device, config_commands):
     
-    # ip_address = a_device['ip']
-
-    # print(f'\nConnected to {ip_address}..')
-    
     net_connect = ConnectHandler(**a_device)
+    
+    # Grab hostname
+    find_hostname = net_connect.find_prompt()
+    hostname = find_hostname.replace("#","")
+    print(f'\nConnected to {hostname}..')
 
-    print(f'Sending commands...\n{config_command}')
-    net_connect.send_config_set(config_commands)
+    # Send commands
+    print(f'Sending commands... {config_commands}')
+    show_inventory = net_connect.send_command(config_commands)
+
+    # Output to file
+    f = open(f'{hostname}.txt', 'w')
+    f.write(show_inventory)
+    f.close()
     
 
 def main():
-    
-    ip_address = input('Current IP of the switch: ')
-    new_hostname = input('New hostname: ')
-    new_ipaddr = input('New IP: ')
-    int_vlan = input('VLAN: ')
 
-    commands = [
-        f'hostname {new_hostname}_{new_ipaddr}'
-        f'int vlan {int_vlan}',
-        f'ip address {new_ipaddr} 255.255.255.0'
-         
-    ]
+    commands = 'show inventory'
 
-    # for device in device_list:
-    #     issue_command(device, commands)
-
-    device_connect = {
-        "device_type": "cisco_ios",
-        "ip": ip_address,
-        "username": username,
-        "password": password,
-    }
-
-    issue_command(device_connect, commands)
+    for device in device_list:
+        issue_command(device, commands)
 
 if __name__ == "__main__":
     main()

@@ -1,15 +1,15 @@
 import yaml
-# from getpass import getpass
+from getpass import getpass
 
-# with open('devices.yaml', 'r') as f:
-#     doc = yaml.safe_load(f)
+with open('devices.yaml', 'r') as f:
+    doc = yaml.safe_load(f)
 
-# switches = doc['switch']
+switches = doc['switch']
 
-device_ips = input('Current IP of the switch: ')
+device_ips = []
 
-# for i in switches.keys():
-#     device_ips.append(switches[i])
+for i in switches.keys():
+    device_ips.append(switches[i])
 
 username = input('Enter standard username: ')
 password = getpass('Enter standard password: ')

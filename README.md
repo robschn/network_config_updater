@@ -1,5 +1,5 @@
 # run command
-Script to run commands on multiple switches by leveraging multiprocessing.
+Script to run commands on multiple switches.
 
 ### Install
 Install required packages using the requirements.txt

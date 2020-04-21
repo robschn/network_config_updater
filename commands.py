@@ -13,17 +13,17 @@ def issue_command(a_device, config_commands):
 
     # Send commands
     print(f'Sending commands... {config_commands}')
-    show_inventory = net_connect.send_command(config_commands)
-
-    # Output to file
-    f = open(f'{hostname}.txt', 'w')
-    f.write(show_inventory)
-    f.close()
-    
+    net_connect.send_command(config_commands)
+    print('Done!')
 
 def main():
 
-    commands = 'show inventory'
+    commands = {
+        'int g1/0/11',
+        'shut',
+        'desc Updated With Python',
+        'no shut'
+    }
 
     for device in device_list:
         issue_command(device, commands)

@@ -17,7 +17,7 @@ switches:
 ```
 2. Run the script
 ```
-python show_ver.py
+python commands.py
 ```
 3. The script will ask for a username and password. These will be stored to be used on all the switches.
 ```
@@ -26,7 +26,7 @@ Enter standard password:
 ```
 4. The script will log into as many switches as it can and run the configuration update.
 ```
-Connected to 192.168.1.2..
+Connected to switch1..
 ```
 5. It will then check the config after issuing the command.
 ```

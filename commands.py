@@ -13,17 +13,22 @@ def issue_command(a_device, config_commands):
 
     # Send commands
     print(f'Sending commands... {config_commands}')
-    net_connect.send_command(config_commands)
-    print('Done!')
+    net_connect.send_config_set(config_commands)
+    print("Done!")
+
+    # write mem
+    print("\nWriting to memory, please wait...")
+    net_connect.send_command('write mem')
+
 
 def main():
 
-    commands = {
+    commands = [
         'int g1/0/11',
         'shut',
         'desc Updated With Python',
         'no shut'
-    }
+    ]
 
     for device in device_list:
         issue_command(device, commands)

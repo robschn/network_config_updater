@@ -66,5 +66,7 @@ def main():
     for device in device_list:
         issue_command(device, commands)
 
+    print('All switches have been updated! Exitting..')
+
 if __name__ == "__main__":
     main()

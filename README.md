@@ -24,12 +24,15 @@ python commands.py
 Enter standard username: cisco
 Enter standard password: 
 ```
-4. The script will log into as many switches as it can and run the configuration update.
+4. The script will log into the first switch and run the configuration update.
 ```
 Connected to switch1..
+Sending commands... ['int g1/0/11', 'shut', 'desc Updated With Python', 'no shut']
+Writing to memory, please wait...
+Done!
 ```
-5. It will then check the config after issuing the command.
+5. If there is another switch the proccess will continue. If not, the script will exit.
 ```
-Config updated for 192.168.1.2!
+All switches have been updated! Exitting..
 ```
 6. Done!

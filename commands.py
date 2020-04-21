@@ -14,11 +14,11 @@ def issue_command(a_device, config_commands):
     # Send commands
     print(f'Sending commands... {config_commands}')
     net_connect.send_config_set(config_commands)
-    print("Done!")
 
     # write mem
-    print("\nWriting to memory, please wait...")
+    print('Writing to memory, please wait...')
     net_connect.send_command('write mem')
+    print('Done!')
 
 
 def main():

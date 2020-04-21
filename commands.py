@@ -1,5 +1,34 @@
+import yaml
+
 from netmiko import ConnectHandler
-from my_devices import device_list
+from getpass import getpass
+
+def grab_devices():
+    with open('devices.yaml', 'r') as f:
+        doc = yaml.safe_load(f)
+
+    switches = doc['switch']
+
+    device_ips = []
+
+    for i in switches.keys():
+        device_ips.append(switches[i])
+
+    username = input('Enter standard username: ')
+    password = getpass('Enter standard password: ')
+
+    device_list = []
+
+    for ip_address in device_ips:
+        curr_device = {
+            "device_type": "cisco_ios",
+            "ip": ip_address,
+            "username": username,
+            "password": password,
+        }
+        device_list.append(curr_device)
+    
+    return device_list
 
 
 def issue_command(a_device, config_commands):
@@ -22,6 +51,10 @@ def issue_command(a_device, config_commands):
 
 
 def main():
+
+    device_list = grab_devices()
+
+    print(device_list)
 
     commands = [
         'int g1/0/11',
